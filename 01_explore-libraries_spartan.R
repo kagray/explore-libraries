@@ -1,10 +1,10 @@
 #' ---
 #' output: github_document
 #' ---
-
-#' Which libraries does R search for packages?
 library(fs)
 library(tidyverse)
+#' Which libraries does R search for packages?
+
 .Library
 .libPaths()
 #' I noticed that the .Library and .libPaths do not match.  Using the fs package we can see that the real path is not putting to the linked path
