@@ -3,39 +3,41 @@
 #' ---
 
 #' Which libraries does R search for packages?
+library(fs)
+library(tidyverse)
 .Library
 .libPaths()
-library(fs)
+#' I noticed that the .Library and .libPaths do not match.  Using the fs package we can see that the real path is not putting to the linked path
 path_real(.Library)
 #' Installed packages
 
 ## use installed.packages() to get all installed packages
-installed.packages()
+myPkgs <- installed.packages()
 ## how many packages?
-nrow(installed.packages())
+nrow(myPkgs)
 
 #' Exploring the packages
 
 ## count some things! inspiration
 ##   * tabulate by LibPath, Priority, or both
-library(tidyverse)
+
+## what are the column names?
 colnames(installed.packages())
-installed.packages() %>% 
+
+myPkgs %>% 
   tbl_df() %>% 
-  group_by(LibPath,Priority) %>% 
-  summarise(n = n())
+  count(LibPath,Priority)
+
 ##   * what proportion need compilation?
-installed.packages() %>% 
+myPkgs %>% 
   tbl_df() %>% 
-  group_by(NeedsCompilation) %>% 
-  summarise(n = n()) %>% 
+  count(NeedsCompilation) %>% 
   mutate(prop = n/sum(n))
 ##   * how break down re: version of R they were built on
 
-installed.packages() %>% 
+myPkgs %>% 
   tbl_df() %>% 
-  group_by(Built) %>% 
-  summarise(n = n()) %>% 
+  count(Built) %>% 
   mutate(prop = n/sum(n))
 
 
