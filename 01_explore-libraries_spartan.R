@@ -47,7 +47,7 @@ installed.packages() %>%
 ## if you have time to do more ...
 
 ## is every package in .Library either base or recommended?
-NO
+#NO
 
 ## study package naming style (all lower case, contains '.', etc
 installed.packages() %>% 
