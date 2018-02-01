@@ -11,4 +11,4 @@ Let's look at a file!
 
 I had water.
 
-Wingardium Leviosa.
+WinGARrdium Leviosa.
