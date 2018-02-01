@@ -13,5 +13,5 @@ I had water.
 
 
 
-WinGARrdium Leviosa.
+Wingardium Leviosa.
 
